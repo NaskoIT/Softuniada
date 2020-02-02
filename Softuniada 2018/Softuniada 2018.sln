@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CircumscribedCircle", "Circ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asteroids", "Asteroids\Asteroids.csproj", "{78B849B1-025A-4C42-BE41-D9AADF424C04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car", "Car\Car.csproj", "{4CF715D6-3BDC-4691-BE38-1FBC93FBCEAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Car", "Car\Car.csproj", "{4CF715D6-3BDC-4691-BE38-1FBC93FBCEAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logistics", "Logistics\Logistics.csproj", "{D8561F7F-F6F6-42E3-A65F-4F01D1783FAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logistics", "Logistics\Logistics.csproj", "{D8561F7F-F6F6-42E3-A65F-4F01D1783FAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafia", "Mafia\Mafia.csproj", "{30B94A6A-F7CB-45B9-BB31-352196A6886B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{D8561F7F-F6F6-42E3-A65F-4F01D1783FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8561F7F-F6F6-42E3-A65F-4F01D1783FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8561F7F-F6F6-42E3-A65F-4F01D1783FAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30B94A6A-F7CB-45B9-BB31-352196A6886B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30B94A6A-F7CB-45B9-BB31-352196A6886B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30B94A6A-F7CB-45B9-BB31-352196A6886B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30B94A6A-F7CB-45B9-BB31-352196A6886B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
