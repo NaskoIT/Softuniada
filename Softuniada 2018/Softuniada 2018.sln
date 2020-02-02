@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Car", "Car\Car.csproj", "{4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logistics", "Logistics\Logistics.csproj", "{D8561F7F-F6F6-42E3-A65F-4F01D1783FAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafia", "Mafia\Mafia.csproj", "{30B94A6A-F7CB-45B9-BB31-352196A6886B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafia", "Mafia\Mafia.csproj", "{30B94A6A-F7CB-45B9-BB31-352196A6886B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarinLabyrinth", "DarinLabyrinth\DarinLabyrinth.csproj", "{EFC8FF1C-2857-4FDD-B10F-898F22EBA35C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{30B94A6A-F7CB-45B9-BB31-352196A6886B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30B94A6A-F7CB-45B9-BB31-352196A6886B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30B94A6A-F7CB-45B9-BB31-352196A6886B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC8FF1C-2857-4FDD-B10F-898F22EBA35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC8FF1C-2857-4FDD-B10F-898F22EBA35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC8FF1C-2857-4FDD-B10F-898F22EBA35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC8FF1C-2857-4FDD-B10F-898F22EBA35C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
