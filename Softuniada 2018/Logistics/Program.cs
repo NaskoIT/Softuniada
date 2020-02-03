@@ -14,7 +14,7 @@ namespace Logistics
         {
             int amountOfPackages = int.Parse(Console.ReadLine());
             int maxDeadline = 0;
-            ; for (int i = 1; i <= amountOfPackages; i++)
+            for (int i = 1; i <= amountOfPackages; i++)
             {
                 var packageParts = Console.ReadLine().Split().Select(int.Parse).ToArray();
                 var package = new Package

@@ -34,10 +34,10 @@ namespace DarinLabyrinth
                 graph[endNode].Add(startNode);
             }
 
-            var shortestPath = FindShortedPath(0, graph.Length - 1);
+            var path = FindPath(0, graph.Length - 1);
             FindArticulationPoints();
 
-            var keyRooms = shortestPath.Where(room => articulationPoints.Contains(room));
+            var keyRooms = path.Where(room => articulationPoints.Contains(room) && FindPath(0, graph.Length - 1, room) == null);
             long sum = 0;
             foreach (var room in keyRooms)
             {
@@ -60,7 +60,6 @@ namespace DarinLabyrinth
                 FindArticulationPoints(0, 1);
             }
         }
-
         private static void FindArticulationPoints(int node, int depth)
         {
             visited[node] = true;
@@ -94,18 +93,15 @@ namespace DarinLabyrinth
             }
         }
 
-        private static IEnumerable<int> FindShortedPath(int sourceNode, int destinationNode)
+        private static IEnumerable<int> FindPath(int sourceNode, int destinationNode, int keyNode = -1)
         {
             int[] parents = new int[graph.Length];
-            int[] minDistances = new int[graph.Length];
-            for (int i = 0; i < minDistances.Length; i++)
+            for (int i = 0; i < parents.Length; i++)
             {
-                minDistances[i] = int.MaxValue;
                 parents[i] = -1;
             }
 
-            minDistances[sourceNode] = 0;
-            bool[] visited = new bool[minDistances.Length];
+            bool[] visited = new bool[parents.Length];
             Queue<int> queue = new Queue<int>();
             queue.Enqueue(sourceNode);
             visited[sourceNode] = true;
@@ -113,6 +109,10 @@ namespace DarinLabyrinth
             while (queue.Count > 0)
             {
                 int node = queue.Dequeue();
+                if (node == keyNode)
+                {
+                    continue;
+                }
                 if (node == destinationNode)
                 {
                     break;
@@ -124,23 +124,17 @@ namespace DarinLabyrinth
                     {
                         visited[child] = true;
                         queue.Enqueue(child);
-
-                        int currentDistance = minDistances[node] + 1;
-                        if (minDistances[child] > currentDistance)
-                        {
-                            minDistances[child] = currentDistance;
-                            parents[child] = node;
-                        }
+                        parents[child] = node;
                     }
                 }
             }
 
-            if (minDistances[destinationNode] <= 0)
+            if (parents[destinationNode] == -1)
             {
                 return null;
             }
 
-            Stack<int> shortestPath = new Stack<int>();
+            Stack<int> path = new Stack<int>();
             int currentNode = destinationNode;
 
             while (parents[currentNode] != -1)
@@ -151,10 +145,11 @@ namespace DarinLabyrinth
                     break;
                 }
 
-                shortestPath.Push(currentNode);
+                path.Push(currentNode);
             }
 
-            return shortestPath;
+            return path;
         }
     }
 }
+
