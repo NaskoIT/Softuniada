@@ -60,6 +60,7 @@ namespace DarinLabyrinth
                 FindArticulationPoints(0, 1);
             }
         }
+
         private static void FindArticulationPoints(int node, int depth)
         {
             visited[node] = true;
