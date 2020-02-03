@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopKeeper", "ShopKeeper\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumber", "Lumber\Lumber.csproj", "{5833AA53-7C20-411E-91CB-7152C8226E9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorCoding", "ColorCoding\ColorCoding.csproj", "{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{5833AA53-7C20-411E-91CB-7152C8226E9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5833AA53-7C20-411E-91CB-7152C8226E9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5833AA53-7C20-411E-91CB-7152C8226E9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

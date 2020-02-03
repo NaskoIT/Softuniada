@@ -10,12 +10,12 @@ namespace WrongResults
         private static int size;
         private static Coordinates[] neighbours = new Coordinates[]
         {
-            new Coordinates(1, 0, 0), // back
-            new Coordinates(-1, 0, 0), // front
-            new Coordinates(0, -1, 0), // up
-            new Coordinates(0, 1, 0), // down
-            new Coordinates(0, 0, 1), // right
-            new Coordinates(0, 0, -1) // left
+            new Coordinates(1, 0, 0), // right
+            new Coordinates(-1, 0, 0), // left
+            new Coordinates(0, -1, 0), // backward 
+            new Coordinates(0, 1, 0), // forward
+            new Coordinates(0, 0, 1), // down
+            new Coordinates(0, 0, -1) // up
         };
 
         static void Main(string[] args)
@@ -25,29 +25,32 @@ namespace WrongResults
             correctCube = new int[size, size, size];
             ReadCube();
             int[] coordinates = Console.ReadLine().Split().Select(int.Parse).ToArray();
-            var incorrectValueCoordinates = new Coordinates(coordinates[0], coordinates[1], coordinates[2]);
+            var incorrectValueCoordinates = new Coordinates(coordinates[2], coordinates[1], coordinates[0]);
 
-            int incorrectValue = cube[incorrectValueCoordinates.X, incorrectValueCoordinates.Y, incorrectValueCoordinates.Z];
+            int incorrectValue = cube[incorrectValueCoordinates.Z, incorrectValueCoordinates.Y, incorrectValueCoordinates.X];
 
             int changedValuesCount = 0;
 
-            for (int x = 0; x < size; x++)
+            for (int firstDimension = 0; firstDimension < size; firstDimension++)
             {
-                for (int y = 0; y < size; y++)
+                for (int secondDimension = 0; secondDimension < size; secondDimension++)
                 {
-                    for (int z = 0; z < size; z++)
+                    for (int thirdDimension = 0; thirdDimension < size; thirdDimension++)
                     {
-                        if (cube[x, y, z] == incorrectValue)
+                        //firstDimension == Z
+                        //secondDimension == y
+                        //thirdDimension == x
+                        if (cube[firstDimension, secondDimension, thirdDimension] == incorrectValue)
                         {
                             int sum = 0;
                             foreach (var neighbour in neighbours)
                             {
-                                int neighbourX = x + neighbour.X;
-                                int neighbourY = y + neighbour.Y;
-                                int neighbourZ = z + neighbour.Z;
-                                if (IsInBounds(neighbourX, neighbourY, neighbourZ))
+                                int neighbourZ = firstDimension + neighbour.Z;
+                                int neighbourY = secondDimension + neighbour.Y;
+                                int neighbourX = thirdDimension + neighbour.X;
+                                if (IsInBounds(neighbourZ, neighbourY, neighbourX))
                                 {
-                                    int neighbourValue = cube[neighbourX, neighbourY, neighbourZ];
+                                    int neighbourValue = cube[neighbourZ, neighbourY, neighbourX];
                                     if (neighbourValue != incorrectValue)
                                     {
                                         sum += neighbourValue;
@@ -56,25 +59,25 @@ namespace WrongResults
                             }
 
                             changedValuesCount++;
-                            correctCube[x, y, z] = sum;
+                            correctCube[firstDimension, secondDimension, thirdDimension] = sum;
                         }
                     }
                 }
             }
 
             Console.WriteLine($"Wrong values found and replaced: {changedValuesCount}");
-            PrinCube(correctCube);
+            PrintCube(correctCube);
         }
 
-        private static void PrinCube(int[,,] cube)
+        private static void PrintCube(int[,,] cube)
         {
-            for (int x = 0; x < size; x++)
+            for (int firstDimension = 0; firstDimension < size; firstDimension++)
             {
-                for (int y = 0; y < size; y++)
+                for (int secondDimension = 0; secondDimension < size; secondDimension++)
                 {
-                    for (int z = 0; z < size; z++)
+                    for (int thirdDemension = 0; thirdDemension < size; thirdDemension++)
                     {
-                        Console.Write(cube[x, y, z] + " ");
+                        Console.Write(cube[firstDimension, secondDimension, thirdDemension] + " ");
                     }
 
                     Console.WriteLine();
@@ -82,9 +85,9 @@ namespace WrongResults
             }
         }
 
-        private static bool IsInBounds(int neighbourX, int neighbourY, int neighbourZ)
+        private static bool IsInBounds(int x, int y, int z)
         {
-            return IsInBounds(neighbourX) && IsInBounds(neighbourY) && IsInBounds(neighbourZ);
+            return IsInBounds(x) && IsInBounds(y) && IsInBounds(z);
         }
 
         private static bool IsInBounds(int coordinate)
@@ -94,11 +97,11 @@ namespace WrongResults
 
         private static void ReadCube()
         {
-            for (int secondDimension = 0; secondDimension < cube.GetLength(0); secondDimension++)
+            for (int secondDimension = 0; secondDimension < cube.GetLength(1); secondDimension++)
             {
                 string[] layers = Console.ReadLine().Split(new string[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
 
-                for (int firstDimension = 0; firstDimension < cube.GetLength(1); firstDimension++)
+                for (int firstDimension = 0; firstDimension < cube.GetLength(0); firstDimension++)
                 {
                     int[] elements = layers[firstDimension].Trim().Split().Select(int.Parse).ToArray();
 

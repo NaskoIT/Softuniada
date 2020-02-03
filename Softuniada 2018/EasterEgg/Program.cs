@@ -8,7 +8,6 @@ namespace EasterEgg
         {
             int n = int.Parse(Console.ReadLine());
             int width = 5 * n;
-
             int dotsCount = 2 * n;
             int middleCount = n;
             string dots = new string('.', dotsCount);
