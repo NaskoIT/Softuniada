@@ -11,9 +11,9 @@ namespace Snake
 
         private static char[,,] cube;
         private static int size;
-        private static int snakeFirstDimension;
-        private static int snakeSecondDimension;
-        private static int snakeThirdDimension;
+        private static int snakeDepth;
+        private static int snakeRow;
+        private static int snakeCol;
         private static string direction;
         private static int collectedPoints = 0;
         private static bool isSnakeDead = false;
@@ -54,36 +54,37 @@ namespace Snake
             {
                 if (direction == "up")
                 {
-                    snakeFirstDimension--;
+                    snakeDepth--;
                 }
                 else if (direction == "down")
                 {
-                    snakeFirstDimension++;
+                    snakeDepth++;
                 }
                 else if (direction == "forward")
                 {
-                    snakeSecondDimension--;
+                    snakeRow--;
                 }
                 else if (direction == "backward")
                 {
-                    snakeSecondDimension++;
+                    snakeRow++;
                 }
                 else if (direction == "left")
                 {
-                    snakeThirdDimension--;
+                    snakeCol--;
                 }
                 else if (direction == "right")
                 {
-                    snakeThirdDimension++;
+                    snakeCol++;
                 }
 
-                if (!IsInBounds(snakeFirstDimension, snakeSecondDimension, snakeThirdDimension))
+                if (!IsInBounds(snakeDepth, snakeRow, snakeCol))
                 {
                     isSnakeDead = true;
                     break;
                 }
-                else if (cube[snakeFirstDimension, snakeSecondDimension, snakeThirdDimension] == Apple)
+                else if (cube[snakeDepth, snakeRow, snakeCol] == Apple)
                 {
+                    cube[snakeDepth, snakeRow, snakeCol] = EmptyCell;
                     collectedPoints++;
                 }
             }
@@ -101,24 +102,22 @@ namespace Snake
 
         private static void ReadCube()
         {
-            for (int secondDimension = 0; secondDimension < cube.GetLength(0); secondDimension++)
+            for (int row = 0; row < cube.GetLength(1); row++)
             {
                 string[] layers = Console.ReadLine().Split(new string[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
 
-                for (int firstDimension = 0; firstDimension < cube.GetLength(1); firstDimension++)
+                for (int depth = 0; depth < cube.GetLength(0); depth++)
                 {
-                    char[] elements = layers[firstDimension].ToCharArray();
-
-                    for (int thirdDimension = 0; thirdDimension < cube.GetLength(2); thirdDimension++)
+                    for (int col = 0; col < cube.GetLength(2); col++)
                     {
-                        if(elements[thirdDimension] == SnakeStart)
+                        if(layers[depth][col] == SnakeStart)
                         {
-                            snakeFirstDimension = firstDimension;
-                            snakeSecondDimension = secondDimension;
-                            snakeThirdDimension = thirdDimension;
+                            snakeDepth = depth;
+                            snakeRow = row;
+                            snakeCol = col;
                         }
 
-                        cube[firstDimension, secondDimension, thirdDimension] = elements[thirdDimension];
+                        cube[depth, row, col] = layers[depth][col];
                     }
                 }
             }

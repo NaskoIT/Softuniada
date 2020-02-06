@@ -11,13 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DuplicatedLetters", "Duplic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snake", "Snake\Snake.csproj", "{7C75F707-AE3B-4A15-A1DC-295618DD52F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingZones", "ParkingZones\ParkingZones.csproj", "{C4085EDD-19E2-493C-98DB-12AF8DE45748}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingZones", "ParkingZones\ParkingZones.csproj", "{C4085EDD-19E2-493C-98DB-12AF8DE45748}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopKeeper", "ShopKeeper\ShopKeeper.csproj", "{3DAD4144-89E4-4EC3-BAD1-9A76EEEFF483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopKeeper", "ShopKeeper\ShopKeeper.csproj", "{3DAD4144-89E4-4EC3-BAD1-9A76EEEFF483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumber", "Lumber\Lumber.csproj", "{5833AA53-7C20-411E-91CB-7152C8226E9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lumber", "Lumber\Lumber.csproj", "{5833AA53-7C20-411E-91CB-7152C8226E9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorCoding", "ColorCoding\ColorCoding.csproj", "{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorCoding", "ColorCoding\ColorCoding.csproj", "{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MerchantsOfNovigrad", "MerchantsOfNovigrad\MerchantsOfNovigrad.csproj", "{A7579E32-78FE-4B60-8774-C6325329E0B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter", "Shelter\Shelter.csproj", "{F8CC2B45-D220-478B-89DF-774B8C47633B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31EC87FA-1932-47E9-82E4-E9F4E84CE23A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7579E32-78FE-4B60-8774-C6325329E0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7579E32-78FE-4B60-8774-C6325329E0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7579E32-78FE-4B60-8774-C6325329E0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7579E32-78FE-4B60-8774-C6325329E0B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8CC2B45-D220-478B-89DF-774B8C47633B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CC2B45-D220-478B-89DF-774B8C47633B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CC2B45-D220-478B-89DF-774B8C47633B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CC2B45-D220-478B-89DF-774B8C47633B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

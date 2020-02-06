@@ -1,94 +1,89 @@
 ﻿using System;
+using System.Linq;
 
 namespace ColorCoding
 {
     class Program
     {
-        private const int TransformableColors = 2;
-        private const int PartiallyTransformableColors = 1;
-
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
             {
-                var firstSequence = Console.ReadLine().Split();
-                var secondSequence = Console.ReadLine().Split();
+                Color[] firstSequence = Console.ReadLine().Split().Select(color => new Color(color)).ToArray();
+                Color[] targetSequence = Console.ReadLine().Split().Select(color => new Color(color)).ToArray();
 
-                if (firstSequence.Length < secondSequence.Length)
+                if (firstSequence.Length < targetSequence.Length)
                 {
                     Console.WriteLine("false");
                     continue;
                 }
 
-                bool isTransformable = IsTransformable(firstSequence, secondSequence);
+                bool isTransformable = IsTransformable(firstSequence, targetSequence);
                 Console.WriteLine(isTransformable.ToString().ToLower());
             }
         }
 
-        private static bool IsTransformable(string[] firstSequence, string[] secondSequence)
+        private static bool IsTransformable(Color[] firstSequence, Color[] targetSequence)
         {
-            int[,] transformations = new int[secondSequence.Length + 1, firstSequence.Length + 1];
-            for (int row = 0; row < secondSequence.Length; row++)
-            {
-                transformations[row, 0] = 1;
-            }
+            bool[,] matrix = new bool[firstSequence.Length + 1, targetSequence.Length + 1];
+            matrix[0, 0] = true;
 
-            for (int col = 0; col < firstSequence.Length; col++)
+            for (int firstIndex = 0; firstIndex < firstSequence.Length; firstIndex++)
             {
-                transformations[0, col] = 1;
-            }
+                Color firstColor = firstSequence[firstIndex];
 
-            for (int row = 1; row <= secondSequence.Length; row++)
-            {
-                for (int col = 1; col <= firstSequence.Length; col++)
+                for (int targetIndex = 0; targetIndex <= targetSequence.Length; targetIndex++)
                 {
-                    string startColor = firstSequence[col - 1];
-                    string endColor = secondSequence[row - 1];
-
-                    if (startColor == endColor)
+                    if (!matrix[firstIndex, targetIndex])
                     {
-                        if(transformations[row - 1, col - 1] == TransformableColors)
-                        {
-                            transformations[row, col] = 0;
-                        }
-                        else
-                        {
-                            transformations[row, col] = transformations[row - 1, col - 1];
-                        }
-
                         continue;
                     }
-
-                    if (IsPartialColor(startColor))
+                    if (!firstColor.IsFull)
                     {
-                        string partalColor = ExtractPartialColor(startColor);
-                        if(partalColor == endColor)
-                        {
-                            transformations[row, col] = Math.Min(transformations[row - 1, col - 1], PartiallyTransformableColors);
-                        }
-                        else
-                        {
-                            transformations[row, col] = transformations[row, col - 1];
-                        }
+                        matrix[firstIndex + 1, targetIndex] = true;
                     }
-                    else
+                    if (targetIndex < targetSequence.Length && firstColor.ColorText == targetSequence[targetIndex].ColorText)
                     {
-                        transformations[row, col] = 0;
+                        matrix[firstIndex + 1, targetIndex + 1] = true;
                     }
                 }
             }
 
-            return transformations[secondSequence.Length, firstSequence.Length] > 0;
+            return matrix[firstSequence.Length, targetSequence.Length];
+        }
+    }
+
+    public class Color
+    {
+        public Color(string color)
+        {
+            if (!IsPartialColor(color))
+            {
+                IsFull = true;
+            }
+
+            if (IsFull)
+            {
+                ColorText = color;
+            }
+            else
+            {
+                ColorText = ExtractPartialColor(color);
+            }
         }
 
-        private static bool IsPartialColor(string color)
+        public bool IsFull { get; set; }
+
+        public string ColorText { get; set; }
+
+        private bool IsPartialColor(string color)
         {
             return color[0] == '(' && color[color.Length - 1] == ')';
         }
 
-        private static string ExtractPartialColor(string partialColor)
+        private string ExtractPartialColor(string partialColor)
         {
             return partialColor.Substring(1, partialColor.Length - 2);
         }
