@@ -11,12 +11,16 @@ namespace ThreeBrothers
             for (int i = 0; i < n; i++)
             {
                 int[] presents = Console.ReadLine().Split().Select(int.Parse).ToArray();
-                Console.WriteLine(CanBeSplitted(presents) ? "Yes" : "No");
+                Console.WriteLine(CanBeSplittedToThreeEqualPartsUsnigDynamicProgramming(presents) ? "Yes" : "No");
             }
         }
 
-        //Dynamic programming solution
-        public static bool CanBeSplitted(int[] presents)
+        /// <summary>
+        ///  Dynamic programming solution
+        /// </summary>
+        /// <param name="presents">Array of integers representing the prices of the presents</param>
+        /// <returns>True if the presents can be splitted to three equal parts and false otherwise</returns>
+        public static bool CanBeSplittedToThreeEqualPartsUsnigDynamicProgramming(int[] presents)
         {
             int totalSum = presents.Sum();
             if (totalSum % 3 != 0)
@@ -27,8 +31,6 @@ namespace ThreeBrothers
             int targetSum = totalSum / 3;
             var reachedSums = new bool[targetSum + 1, targetSum + 1];
             reachedSums[0, 0] = true;
-            var prev1 = new int[targetSum + 1, targetSum + 1];
-            var prev2 = new int[targetSum + 1, targetSum + 1];
 
             foreach (var present in presents)
             {
@@ -38,15 +40,13 @@ namespace ThreeBrothers
                     {
                         if (reachedSums[rowSum, colSum])
                         {
-                            if (rowSum + present <= targetSum && !reachedSums[rowSum + present, colSum])
+                            if (rowSum + present <= targetSum)
                             {
                                 reachedSums[rowSum + present, colSum] = true;
-                                prev1[rowSum + present, colSum] = present;
                             }
-                            if (colSum + present <= targetSum && !reachedSums[rowSum, colSum + present])
+                            if (colSum + present <= targetSum)
                             {
                                 reachedSums[rowSum, colSum + present] = true;
-                                prev2[rowSum, colSum + present] = present;
                             }
                         }
                     }
@@ -54,6 +54,47 @@ namespace ThreeBrothers
             }
 
             return reachedSums[targetSum, targetSum];
+        }
+
+        /// <summary>
+        ///  Recursion and backtracking
+        /// </summary>
+        /// <param name="presents">Array of integers representing the prices of the presents</param>
+        /// <returns>True if the presents can be splitted to three equal parts and false otherwise</returns>
+        public static bool CanBeSplittedToThreeEqualPartsUsnigBackTracking(int[] presents)
+        {
+            int totalSum = presents.Sum();
+            if (totalSum % 3 != 0)
+            {
+                // The presents cannot be divided into 3 equal integer numbers
+                return false;
+            }
+
+            int targetSum = totalSum / 3;
+
+            bool found = false;
+            FindSum(0, 0, 0, ref found, targetSum, presents);
+            return found;
+        }
+
+        private static void FindSum(int firstSum, int secondSum, int index, ref bool found, int targetSum, int[] presents)
+        {
+            if (found || firstSum > targetSum || secondSum > targetSum || index == presents.Length)
+            {
+                return;
+            }
+
+            if (firstSum == targetSum && secondSum == targetSum)
+            {
+                found = true;
+                return;
+            }
+
+            FindSum(firstSum + presents[index], secondSum, index + 1, ref found, targetSum, presents);
+
+            FindSum(firstSum, secondSum + presents[index], index + 1, ref found, targetSum, presents);
+
+            FindSum(firstSum, secondSum, index + 1, ref found, targetSum, presents);
         }
     }
 }
