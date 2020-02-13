@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digitivision", "Digitivisio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crocs", "Crocs\Crocs.csproj", "{82988576-A3BD-4B0B-961D-B51092B4D6D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexus", "Nexus\Nexus.csproj", "{15706AFA-FDB5-4935-B85E-433829F4C3D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{82988576-A3BD-4B0B-961D-B51092B4D6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82988576-A3BD-4B0B-961D-B51092B4D6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82988576-A3BD-4B0B-961D-B51092B4D6D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15706AFA-FDB5-4935-B85E-433829F4C3D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15706AFA-FDB5-4935-B85E-433829F4C3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15706AFA-FDB5-4935-B85E-433829F4C3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15706AFA-FDB5-4935-B85E-433829F4C3D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
