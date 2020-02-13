@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elemelons", "Elemelons\Elem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridVoyage", "GridVoyage\GridVoyage.csproj", "{DACF3709-5DDB-4D49-8074-86713BF7AD3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriForce", "TriForce\TriForce.csproj", "{5AA98D64-8257-4D84-A7FD-205F2C01B61B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DACF3709-5DDB-4D49-8074-86713BF7AD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DACF3709-5DDB-4D49-8074-86713BF7AD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DACF3709-5DDB-4D49-8074-86713BF7AD3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA98D64-8257-4D84-A7FD-205F2C01B61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA98D64-8257-4D84-A7FD-205F2C01B61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA98D64-8257-4D84-A7FD-205F2C01B61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA98D64-8257-4D84-A7FD-205F2C01B61B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
