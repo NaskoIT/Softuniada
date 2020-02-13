@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriForce", "TriForce\TriFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Undefined", "Undefined\Undefined.csproj", "{F8357B0B-0A40-465A-8C13-892979E01FD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rooks", "Rooks\Rooks.csproj", "{B4C31039-259C-4928-9C2E-BBC09AA00E94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F8357B0B-0A40-465A-8C13-892979E01FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8357B0B-0A40-465A-8C13-892979E01FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8357B0B-0A40-465A-8C13-892979E01FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4C31039-259C-4928-9C2E-BBC09AA00E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4C31039-259C-4928-9C2E-BBC09AA00E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4C31039-259C-4928-9C2E-BBC09AA00E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4C31039-259C-4928-9C2E-BBC09AA00E94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
