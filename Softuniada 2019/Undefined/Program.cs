@@ -1,0 +1,12 @@
+﻿using System;
+
+namespace Undefined
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
