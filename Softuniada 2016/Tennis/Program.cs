@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace Tennis
+﻿namespace Tennis
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
         }
     }
 }
