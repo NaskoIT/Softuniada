@@ -25,7 +25,7 @@ namespace PackagingFigures
                     
                     if (firstFigure is Circle firstCircle)
                     {
-                        //Check if secind circle is inside first circle
+                        //Check if second circle is inside first circle
                         if (secondFigure is Circle secondCircle)
                         {
                             if(secondCircle.Radius > firstCircle.Radius)
